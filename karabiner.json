@@ -16,7 +16,7 @@
         },
         "rules": [
           {
-            "description": "yfn",
+            "description": "fn key setting",
             "manipulators": [
               {
                 "from": {
@@ -109,6 +109,64 @@
                   {
                     "key_code": "escape",
                     "repeat": true
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "rightcmd option",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "e",
+                  "modifiers": {
+                    "mandatory": "right_command"
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "spacebar",
+                    "modifiers": ["left_command", "left_option"],
+                    "repeat": false
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "alt-tap",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "tab",
+                  "modifiers": {
+                    "mandatory": ["left_option"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "tab",
+                    "modifiers": ["left_command"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "tab",
+                  "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "tab",
+                    "modifiers": ["left_control"]
                   }
                 ],
                 "type": "basic"
@@ -267,16 +325,6 @@
           "to": [
             {
               "key_code": "fn"
-            }
-          ]
-        },
-        {
-          "from": {
-            "key_code": "right_command"
-          },
-          "to": [
-            {
-              "apple_vendor_keyboard_key_code": "launchpad"
             }
           ]
         }
