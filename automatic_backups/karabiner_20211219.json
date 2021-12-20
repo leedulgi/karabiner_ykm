@@ -16,7 +16,7 @@
         },
         "rules": [
           {
-            "description": "fn key setting",
+            "description": "fn",
             "manipulators": [
               {
                 "from": {
@@ -95,135 +95,16 @@
               },
               {
                 "from": {
-                  "key_code": "open_bracket",
-                  "modifiers": {
-                    "mandatory": ["fn"]
-                  }
+                  "key_code": "caps_lock"
                 },
                 "to": [
                   {
-                    "select_input_source": {
-                      "language": "en"
-                    }
-                  },
-                  {
-                    "key_code": "escape",
+                    "key_code": "fn",
+                    "lazy": true,
                     "repeat": true
                   }
                 ],
                 "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "rightcmd option",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "e",
-                  "modifiers": {
-                    "mandatory": "right_command"
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "spacebar",
-                    "modifiers": ["left_command", "left_option"],
-                    "repeat": false
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "alt-tap",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "tab",
-                  "modifiers": {
-                    "mandatory": ["left_option"],
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "tab",
-                    "modifiers": ["left_command"]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "tab",
-                  "modifiers": {
-                    "mandatory": ["left_command"],
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "tab",
-                    "modifiers": ["left_control"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "control into command on terminal",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": { "key_code": "left_command" },
-                "to": [{ "key_code": "left_control" }],
-                "to_if_alone": [{ "key_code": "left_control" }],
-                "conditions": [
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": ["^com\\.apple\\.Terminal$"]
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "mv by word",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "h",
-                  "modifiers": {
-                    "mandatory": ["fn", "left_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "lazy": true,
-                    "key_code": "left_arrow",
-                    "modifiers": ["left_option"]
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": ["fn", "left_command"]
-                  }
-                },
-                "to": [
-                  {
-                    "lazy": true,
-                    "key_code": "right_arrow",
-                    "modifiers": ["left_option"]
-                  }
-                ]
               }
             ]
           }
@@ -371,18 +252,7 @@
         "delay_milliseconds_before_open_device": 1000
       },
       "selected": true,
-      "simple_modifications": [
-        {
-          "from": {
-            "key_code": "caps_lock"
-          },
-          "to": [
-            {
-              "key_code": "fn"
-            }
-          ]
-        }
-      ],
+      "simple_modifications": [],
       "virtual_hid_keyboard": {
         "country_code": 0,
         "indicate_sticky_modifier_keys_state": true,
