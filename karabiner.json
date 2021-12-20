@@ -172,6 +172,23 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "control into command on terminal",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "left_command" },
+                "to": [{ "key_code": "left_control" }],
+                "to_if_alone": [{ "key_code": "left_control" }],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": ["^com\\.apple\\.Terminal$"]
+                  }
+                ]
+              }
+            ]
           }
         ]
       },
