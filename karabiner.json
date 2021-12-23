@@ -157,6 +157,9 @@
                 "to": {
                   "key_code": "right_command"
                 },
+                "to_if_alone": {
+                  "apple_vendor_keyboard_key_code": "launchpad"
+                },
                 "type": "basic"
               },
               {
@@ -639,13 +642,13 @@
                 "from": {
                   "key_code": "h",
                   "modifiers": {
-                    "mandatory": ["fn", "left_command"]
+                    "mandatory": ["fn", "left_command"],
+                    "optional": ["any"]
                   }
                 },
                 "to": [
                   {
                     "key_code": "left_arrow",
-                    "lazy": true,
                     "modifiers": ["left_option"]
                   }
                 ],
@@ -655,7 +658,8 @@
                 "from": {
                   "key_code": "l",
                   "modifiers": {
-                    "mandatory": ["fn", "left_command"]
+                    "mandatory": ["fn", "left_command"],
+                    "optional": ["any"]
                   }
                 },
                 "to": [
@@ -733,6 +737,19 @@
           "identifiers": {
             "is_keyboard": true,
             "is_pointing_device": true,
+            "product_id": 8800,
+            "vendor_id": 17498
+          },
+          "ignore": false,
+          "manipulate_caps_lock_led": true,
+          "simple_modifications": []
+        },
+        {
+          "disable_built_in_keyboard_if_exists": false,
+          "fn_function_keys": [],
+          "identifiers": {
+            "is_keyboard": true,
+            "is_pointing_device": false,
             "product_id": 8800,
             "vendor_id": 17498
           },
