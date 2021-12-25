@@ -14,21 +14,31 @@
           "basic.to_if_held_down_threshold_milliseconds": 500,
           "mouse_motion_to_scroll.speed": 100
         },
+        "title": "ykm",
         "rules": [
           {
             "description": "ansi to mac",
             "manipulators": [
               {
+                "type": "basic",
                 "conditions": [
                   {
-                    "type": "keyboard_type_if",
-                    "keyboard_types": ["ansi"]
+                    "type": "device_if",
+                    "identifiers": [
+                      {
+                        "description": "dz60",
+                        "product_id": 4641,
+                        "vendor_id": 17498,
+                        "is_keyboard": true
+                      }
+                    ]
                   },
                   {
                     "bundle_identifiers": ["^com\\.apple\\.Terminal$"],
                     "type": "frontmost_application_if"
                   }
                 ],
+
                 "from": {
                   "key_code": "left_option",
                   "modifiers": {
@@ -44,14 +54,22 @@
                   {
                     "key_code": "left_control"
                   }
-                ],
-                "type": "basic"
+                ]
               },
+
               {
+                "type": "basic",
                 "conditions": [
                   {
-                    "keyboard_types": ["ansi"],
-                    "type": "keyboard_type_if"
+                    "type": "device_if",
+                    "identifiers": [
+                      {
+                        "description": "dz60",
+                        "product_id": 4641,
+                        "vendor_id": 17498,
+                        "is_keyboard": true
+                      }
+                    ]
                   }
                 ],
                 "from": {
@@ -65,14 +83,21 @@
                 },
                 "to_if_alone": {
                   "key_code": "left_command"
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
-                    "keyboard_types": ["ansi"],
-                    "type": "keyboard_type_if"
+                    "type": "device_if",
+                    "identifiers": [
+                      {
+                        "description": "dz60",
+                        "product_id": 4641,
+                        "vendor_id": 17498,
+                        "is_keyboard": true
+                      }
+                    ]
                   }
                 ],
                 "from": {
@@ -86,14 +111,21 @@
                 },
                 "to_if_alone": {
                   "key_code": "right_option"
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
-                    "type": "keyboard_type_if",
-                    "keyboard_types": ["ansi"]
+                    "type": "device_if",
+                    "identifiers": [
+                      {
+                        "description": "dz60",
+                        "product_id": 4641,
+                        "vendor_id": 17498,
+                        "is_keyboard": true
+                      }
+                    ]
                   }
                 ],
                 "from": {
@@ -104,17 +136,24 @@
                 },
                 "to": {
                   "key_code": "right_command"
-                },
-                "to_if_alone": {
-                  "apple_vendor_keyboard_key_code": "launchpad"
-                },
-                "type": "basic"
+                }
+                // "to_if_alone": {
+                //   "key_code": "launchpad"
+                // }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
-                    "keyboard_types": ["ansi"],
-                    "type": "keyboard_type_if"
+                    "type": "device_if",
+                    "identifiers": [
+                      {
+                        "description": "dz60",
+                        "product_id": 4641,
+                        "vendor_id": 17498,
+                        "is_keyboard": true
+                      }
+                    ]
                   }
                 ],
                 "from": {
@@ -128,8 +167,7 @@
                 },
                 "to_if_alone": {
                   "key_code": "left_option"
-                },
-                "type": "basic"
+                }
               }
             ]
           },
@@ -140,8 +178,7 @@
                 "from": {
                   "key_code": "h",
                   "modifiers": {
-                    "mandatory": ["fn"],
-                    "optional": ["left_shift"]
+                    "mandatory": ["fn"]
                   }
                 },
                 "to": [
@@ -156,8 +193,7 @@
                 "from": {
                   "key_code": "j",
                   "modifiers": {
-                    "mandatory": ["fn"],
-                    "optional": ["left_shift"]
+                    "mandatory": ["fn"]
                   }
                 },
                 "to": [
@@ -172,8 +208,7 @@
                 "from": {
                   "key_code": "k",
                   "modifiers": {
-                    "mandatory": ["fn"],
-                    "optional": ["left_shift"]
+                    "mandatory": ["fn"]
                   }
                 },
                 "to": [
@@ -188,8 +223,7 @@
                 "from": {
                   "key_code": "l",
                   "modifiers": {
-                    "mandatory": ["fn"],
-                    "optional": ["left_shift"]
+                    "mandatory": ["fn"]
                   }
                 },
                 "to": [
@@ -237,10 +271,12 @@
               }
             ]
           },
+
           {
             "description": "function keys",
             "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "1",
                   "modifiers": {
@@ -252,10 +288,10 @@
                   {
                     "key_code": "f1"
                   }
-                ],
-                "type": "basic"
+                ]
               },
               {
+                "type": "basic",
                 "from": {
                   "key_code": "2",
                   "modifiers": {
@@ -267,10 +303,10 @@
                   {
                     "key_code": "f2"
                   }
-                ],
-                "type": "basic"
+                ]
               },
               {
+                "type": "basic",
                 "from": {
                   "key_code": "3",
                   "modifiers": {
@@ -282,10 +318,10 @@
                   {
                     "key_code": "f3"
                   }
-                ],
-                "type": "basic"
+                ]
               },
               {
+                "type": "basic",
                 "from": {
                   "key_code": "4",
                   "modifiers": {
@@ -297,10 +333,10 @@
                   {
                     "key_code": "f4"
                   }
-                ],
-                "type": "basic"
+                ]
               },
               {
+                "type": "basic",
                 "from": {
                   "key_code": "5",
                   "modifiers": {
@@ -312,10 +348,10 @@
                   {
                     "key_code": "f5"
                   }
-                ],
-                "type": "basic"
+                ]
               },
               {
+                "type": "basic",
                 "from": {
                   "key_code": "6",
                   "modifiers": {
@@ -327,10 +363,10 @@
                   {
                     "key_code": "f6"
                   }
-                ],
-                "type": "basic"
+                ]
               },
               {
+                "type": "basic",
                 "from": {
                   "key_code": "7",
                   "modifiers": {
@@ -342,10 +378,10 @@
                   {
                     "key_code": "f7"
                   }
-                ],
-                "type": "basic"
+                ]
               },
               {
+                "type": "basic",
                 "from": {
                   "key_code": "8",
                   "modifiers": {
@@ -357,10 +393,10 @@
                   {
                     "key_code": "f8"
                   }
-                ],
-                "type": "basic"
+                ]
               },
               {
+                "type": "basic",
                 "from": {
                   "key_code": "9",
                   "modifiers": {
@@ -372,10 +408,10 @@
                   {
                     "key_code": "f9"
                   }
-                ],
-                "type": "basic"
+                ]
               },
               {
+                "type": "basic",
                 "from": {
                   "key_code": "0",
                   "modifiers": {
@@ -387,10 +423,10 @@
                   {
                     "key_code": "f10"
                   }
-                ],
-                "type": "basic"
+                ]
               },
               {
+                "type": "basic",
                 "from": {
                   "key_code": "hyphen",
                   "modifiers": {
@@ -402,10 +438,10 @@
                   {
                     "key_code": "f11"
                   }
-                ],
-                "type": "basic"
+                ]
               },
               {
+                "type": "basic",
                 "from": {
                   "key_code": "equal_sign",
                   "modifiers": {
@@ -417,11 +453,11 @@
                   {
                     "key_code": "f12"
                   }
-                ],
-                "type": "basic"
+                ]
               }
             ]
           },
+
           {
             "description": "rightcmd option",
             "manipulators": [
@@ -493,6 +529,7 @@
                 "type": "basic"
               },
               {
+                "type": "basic",
                 "from": {
                   "key_code": "grave_accent_and_tilde",
                   "modifiers": {
@@ -505,8 +542,7 @@
                     "key_code": "escape",
                     "repeat": false
                   }
-                ],
-                "type": "basic"
+                ]
               }
             ]
           },
@@ -581,13 +617,13 @@
                 "from": {
                   "key_code": "h",
                   "modifiers": {
-                    "mandatory": ["fn", "left_command"],
-                    "optional": ["any"]
+                    "mandatory": ["fn", "left_command"]
                   }
                 },
                 "to": [
                   {
                     "key_code": "left_arrow",
+                    "lazy": true,
                     "modifiers": ["left_option"]
                   }
                 ],
@@ -597,8 +633,7 @@
                 "from": {
                   "key_code": "l",
                   "modifiers": {
-                    "mandatory": ["fn", "left_command"],
-                    "optional": ["any"]
+                    "mandatory": ["fn", "left_command"]
                   }
                 },
                 "to": [
@@ -627,8 +662,7 @@
               }
             ]
           }
-        ],
-        "title": "ykm"
+        ]
       },
       "devices": [
         {
@@ -664,32 +698,6 @@
             "is_keyboard": true,
             "is_pointing_device": true,
             "product_id": 4641,
-            "vendor_id": 17498
-          },
-          "ignore": false,
-          "manipulate_caps_lock_led": true,
-          "simple_modifications": []
-        },
-        {
-          "disable_built_in_keyboard_if_exists": false,
-          "fn_function_keys": [],
-          "identifiers": {
-            "is_keyboard": true,
-            "is_pointing_device": true,
-            "product_id": 8800,
-            "vendor_id": 17498
-          },
-          "ignore": false,
-          "manipulate_caps_lock_led": true,
-          "simple_modifications": []
-        },
-        {
-          "disable_built_in_keyboard_if_exists": false,
-          "fn_function_keys": [],
-          "identifiers": {
-            "is_keyboard": true,
-            "is_pointing_device": false,
-            "product_id": 8800,
             "vendor_id": 17498
           },
           "ignore": false,
