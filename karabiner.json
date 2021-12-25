@@ -16,17 +16,22 @@
         },
         "rules": [
           {
-            "description": "ansi to mac",
+            "description": "command,contol on terminal - external kbd (must be earlier than external modifier)",
             "manipulators": [
               {
+                "type": "basic",
                 "conditions": [
                   {
-                    "type": "keyboard_type_if",
-                    "keyboard_types": ["ansi"]
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "product_id": 641
+                      }
+                    ]
                   },
                   {
-                    "bundle_identifiers": ["^com\\.apple\\.Terminal$"],
-                    "type": "frontmost_application_if"
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": ["^com\\.apple\\.Terminal$"]
                   }
                 ],
                 "from": {
@@ -44,14 +49,23 @@
                   {
                     "key_code": "left_control"
                   }
-                ],
-                "type": "basic"
-              },
+                ]
+              }
+            ]
+          },
+          {
+            "description": "change external keyboard modifier",
+            "manipulators": [
               {
+                "type": "basic",
                 "conditions": [
                   {
-                    "keyboard_types": ["ansi"],
-                    "type": "keyboard_type_if"
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "product_id": 641
+                      }
+                    ]
                   }
                 ],
                 "from": {
@@ -65,56 +79,18 @@
                 },
                 "to_if_alone": {
                   "key_code": "left_command"
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
-                    "keyboard_types": ["ansi"],
-                    "type": "keyboard_type_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "right_control",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": {
-                  "key_code": "right_option"
-                },
-                "to_if_alone": {
-                  "key_code": "right_option"
-                },
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "type": "keyboard_type_if",
-                    "keyboard_types": ["ansi"]
-                  }
-                ],
-                "from": {
-                  "key_code": "right_option",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": {
-                  "key_code": "right_command"
-                },
-                "to_if_alone": {
-                  "apple_vendor_keyboard_key_code": "launchpad"
-                },
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "keyboard_types": ["ansi"],
-                    "type": "keyboard_type_if"
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "product_id": 641
+                      }
+                    ]
                   }
                 ],
                 "from": {
@@ -128,11 +104,61 @@
                 },
                 "to_if_alone": {
                   "key_code": "left_option"
+                }
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "product_id": 641
+                      }
+                    ]
+                  }
+                ],
+                "from": {
+                  "key_code": "right_control",
+                  "modifiers": {
+                    "optional": ["any"]
+                  }
                 },
-                "type": "basic"
+                "to": {
+                  "key_code": "right_option"
+                },
+                "to_if_alone": {
+                  "key_code": "right_option"
+                }
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "product_id": 641
+                      }
+                    ]
+                  }
+                ],
+                "from": {
+                  "key_code": "right_option",
+                  "modifiers": {
+                    "optional": ["any"]
+                  }
+                },
+                "to": {
+                  "key_code": "right_command"
+                },
+                "to_if_alone": {
+                  "apple_vendor_keyboard_key_code": "launchpad"
+                }
               }
             ]
           },
+
           {
             "description": "fn key setting",
             "manipulators": [
@@ -568,6 +594,28 @@
                 "to_if_alone": [
                   {
                     "key_code": "left_control"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": ["^com\\.apple\\.Terminal$"],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "left_control"
+                },
+                "to": [
+                  {
+                    "key_code": "left_command"
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "left_command"
                   }
                 ],
                 "type": "basic"
