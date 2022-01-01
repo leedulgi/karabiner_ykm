@@ -1,0 +1,29 @@
+0키를 -> 0위치로
+
+esc - 01
+` - 29
+del - 53 E0
+\ - 2B
+Backspace - 0E
+LCtrl - 1D
+RCtrl - 1D E0
+LWin - 5B E0
+RWin - 5C E0
+LAlt - 38
+RAlt - 38 E0
+caps - 3A
+f13 - 64
+f14 - 65
+ParSc - 37 E0
+한자 - 71 E0
+한영 - 72 E0
+right click - 5D E0
+;	- 27 00
+Enter	- 1C 00
+,	- 33 00
+.	- 34 00
+/	- 35 00
+\   - 2B 00
+`   - 29 00
+RShift	- 36 00
+[	- 1A 00
