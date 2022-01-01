@@ -22,3 +22,5 @@ SC037로 했을때 작동했음
 
 ***일본어는 caps 리맵핑하면 오류 발생 -> 레지스트리로 변경해야함
 
+ko/en key issue
+https://iamaman.tistory.com/2223
