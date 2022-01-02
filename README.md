@@ -16,11 +16,17 @@ left_win -> left_alt
 hjkl to arrow key
 ` to esc
 
-### v2.0
+# v2.0
 
 fn into capslock
 
-### v3.0
+# v3.0
 
 compatible with mac
 combine unix contol key with fn key
+
+
+
+# Note
+karabiner config directory is '~/.config/karabiner'
+clone ykm in any location, then make symbolic link of karabiner.json at config directory
