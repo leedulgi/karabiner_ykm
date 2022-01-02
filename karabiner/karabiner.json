@@ -16,17 +16,18 @@
         },
         "rules": [
           {
-            "description": "change external keyboard modifier",
+            "description": "remap external ANSI keyboard modifier",
             "manipulators": [
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "device_unless",
                     "identifiers": [
                       {
                         "product_id": 641
                       }
-                    ],
-                    "type": "device_unless"
+                    ]
                   }
                 ],
                 "from": {
@@ -40,8 +41,7 @@
                 },
                 "to_if_alone": {
                   "key_code": "left_command"
-                },
-                "type": "basic"
+                }
               },
               {
                 "conditions": [
@@ -128,7 +128,7 @@
                   "key_code": "h",
                   "modifiers": {
                     "mandatory": ["left_control"],
-                    "optional": ["left_shift"]
+                    "optional": ["any"]
                   }
                 },
                 "to": [
@@ -144,7 +144,7 @@
                   "key_code": "j",
                   "modifiers": {
                     "mandatory": ["left_control"],
-                    "optional": ["left_shift"]
+                    "optional": ["any"]
                   }
                 },
                 "to": [
@@ -160,7 +160,7 @@
                   "key_code": "k",
                   "modifiers": {
                     "mandatory": ["left_control"],
-                    "optional": ["left_shift"]
+                    "optional": ["any"]
                   }
                 },
                 "to": [
@@ -176,7 +176,7 @@
                   "key_code": "l",
                   "modifiers": {
                     "mandatory": ["left_control"],
-                    "optional": ["left_shift"]
+                    "optional": ["any"]
                   }
                 },
                 "to": [
