@@ -56,8 +56,7 @@ v::^v
 [::
     if(IME_CHECK("A"))
         Send, {VK15}    ; press ko/en_key when current language is hangeul with ^[
-Send, ^[
-
+;Send, {esc}
 
 ;n::Pgdn
 ;m::Pgup
