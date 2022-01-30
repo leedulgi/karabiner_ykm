@@ -46,22 +46,22 @@ j::Down
 k::Up
 
 ;for unix terminal control
-a::^a
-e::^e
-b::^b
-f::^f
-c::^c
-v::^v
+;a::^a
+;e::^e
+;b::^b
+;f::^f
+;c::^c
+;v::^v
 
 [::
     if(IME_CHECK("A"))
         Send, {VK15}    ; press ko/en_key when current language is hangeul with ^[
 ;Send, {esc}
 
-;n::Pgdn
-;m::Pgup
-;,::Home
-;.::End
+d::Pgdn
+u::Pgup
+,::Home
+.::End
 
 `::Esc
 1::f1
