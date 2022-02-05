@@ -7,13 +7,11 @@ $Esc::
     if(IME_CHECK("A"))
         Send, {VK15}    ; press ko/en_key when current language is hangeul with esc
 Send, {Esc}
-
 $^[::
     if(IME_CHECK("A"))
         Send, {VK15}    ; press ko/en_key when current language is hangeul with ^[
 Send, ^[
     return
-
 /*
   IME check 
 */
