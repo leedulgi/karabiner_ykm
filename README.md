@@ -17,13 +17,17 @@ hjkl to arrow key
 ` to esc
 
 # v2.0
+### separate into two kind of setting file 
+ - fn into capslock 
+ - fn into LAlt (LCmd on mac)
 
-fn into capslock
-
-# v3.0
 
 compatible with mac
 combine unix contol key with fn key
+minimize to basic setting
+ 
+
+### requres on mac
 
 
 
