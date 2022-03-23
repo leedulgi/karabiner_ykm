@@ -16,6 +16,53 @@
         },
         "rules": [
           {
+            "description": "remote programs - keymap",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": ["com.vmware.horizon"]
+                  }
+                ],
+                "from": {
+                  "key_code": "left_control"
+                },
+                "to": [
+                  {
+                    "repeat": true,
+                    "key_code": "left_control"
+                  }
+                ],
+                "to_if_alone": {
+                  "key_code": "left_control"
+                }
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": ["com.vmware.horizon"]
+                  }
+                ],
+                "from": {
+                  "modifiers": {
+                    "mandatory": ["left_shift"]
+                  },
+                  "key_code": "spacebar"
+                },
+                "to": [
+                  {
+                    "repeat": true,
+                    "key_code": "right_alt"
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "description": "remap external ANSI keyboard modifier",
             "manipulators": [
               {
@@ -120,50 +167,7 @@
               }
             ]
           },
-          {
-            "description": "remote keymap",
-            "manipulators": [
-              {
-                "type": "basic",
-                "conditions": [
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": ["com.vmware.horizon"]
-                  }
-                ],
-                "from": {
-                  "key_code": "left_gui"
-                },
-                "to": [
-                  {
-                    "repeat": true,
-                    "key_code": "left_control"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "conditions": [
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": ["com.vmware.horizon"]
-                  }
-                ],
-                "from": {
-                  "modifiers": {
-                    "mandatory": ["left_shift"]
-                  },
-                  "key_code": "spacebar"
-                },
-                "to": [
-                  {
-                    "repeat": true,
-                    "key_code": "right_alt"
-                  }
-                ]
-              }
-            ]
-          },
+
           {
             "description": "on ANSI keyboard caps -> ctrl",
             "manipulators": [
