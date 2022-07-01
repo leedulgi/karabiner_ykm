@@ -167,7 +167,6 @@
               }
             ]
           },
-
           {
             "description": "on ANSI keyboard caps -> ctrl",
             "manipulators": [
@@ -300,7 +299,7 @@
             ]
           },
           {
-            "description": "fn key setting",
+            "description": "fn binding action",
             "manipulators": [
               {
                 "from": {
@@ -424,6 +423,26 @@
                 "to": [
                   {
                     "key_code": "page_up",
+                    "repeat": true
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "o",
+                  "modifiers": {
+                    "mandatory": ["left_control"]
+                  }
+                },
+                "to": [
+                  {
+                    "select_input_source": {
+                      "language": "en"
+                    }
+                  },
+                  {
+                    "key_code": "escape",
                     "repeat": true
                   }
                 ],
