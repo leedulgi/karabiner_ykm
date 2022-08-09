@@ -102,6 +102,42 @@
                   }
                 ]
               },
+              // temp ) disable ctrl-w
+              {
+                "conditions": [
+                  // {
+                  //   "type": "device_unless",
+                  //   "identifiers": [
+                  //     {
+                  //       "product_id": 641
+                  //     }
+                  //   ]
+                  // },
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.vmware.horizon",
+                      "com.microsoft.rdc.macos"
+                    ]
+                  }
+                ],
+                "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "optional": ["left_command"]
+                  }
+                },
+                "to": {
+                  "key_code": ""
+                },
+                "type": "basic"
+              }
+            ]
+          },
+
+          {
+            "description": "remote programs on ANSI External keyboard",
+            "manipulators": [
               {
                 "conditions": [
                   {
@@ -127,7 +163,7 @@
                   }
                 },
                 "to": {
-                  "key_code": ""
+                  "key_code": "left_control"
                 },
                 "type": "basic"
               }
