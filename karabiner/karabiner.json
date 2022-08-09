@@ -14,7 +14,25 @@
           "basic.to_if_held_down_threshold_milliseconds": 500,
           "mouse_motion_to_scroll.speed": 100
         },
+
         "rules": [
+          // {
+          //   "description": "test",
+          //   "manipulators": [
+          //     {
+          //       "type": "basic",
+          //       "from": {
+          //         "key_code": "a"
+          //       },
+          //       "to": [
+          //         {
+          //           "repeat": true,
+          //           "key_code": "c"
+          //         }
+          //       ]
+          //     }
+          //   ]
+          // },
           {
             "description": "remote programs - keymap",
             "manipulators": [
@@ -23,28 +41,52 @@
                 "conditions": [
                   {
                     "type": "frontmost_application_if",
-                    "bundle_identifiers": ["com.vmware.horizon"]
+                    "bundle_identifiers": [
+                      "com.vmware.horizon",
+                      "com.microsoft.rdc.macos"
+                    ]
                   }
                 ],
                 "from": {
-                  "key_code": "left_control"
+                  "key_code": "caps_lock"
                 },
                 "to": [
                   {
                     "repeat": true,
                     "key_code": "left_control"
                   }
-                ],
-                "to_if_alone": {
-                  "key_code": "left_control"
-                }
+                ]
               },
               {
                 "type": "basic",
                 "conditions": [
                   {
                     "type": "frontmost_application_if",
-                    "bundle_identifiers": ["com.vmware.horizon"]
+                    "bundle_identifiers": [
+                      "com.vmware.horizon",
+                      "com.microsoft.rdc.macos"
+                    ]
+                  }
+                ],
+                "from": {
+                  "key_code": "right_command"
+                },
+                "to": [
+                  {
+                    "repeat": true,
+                    "key_code": "right_gui"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.vmware.horizon",
+                      "com.microsoft.rdc.macos"
+                    ]
                   }
                 ],
                 "from": {
@@ -59,126 +101,51 @@
                     "key_code": "right_alt"
                   }
                 ]
-              }
-            ]
-          },
-          {
-            "description": "remap external ANSI keyboard modifier",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "identifiers": [
-                      {
-                        "product_id": 641
-                      }
-                    ],
-                    "type": "device_unless"
-                  }
-                ],
-                "from": {
-                  "key_code": "left_option",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": {
-                  "key_code": "left_control"
-                },
-                "to_if_alone": {
-                  "key_code": "left_control"
-                },
-                "type": "basic"
               },
               {
                 "conditions": [
                   {
+                    "type": "device_unless",
                     "identifiers": [
                       {
                         "product_id": 641
                       }
-                    ],
-                    "type": "device_unless"
-                  }
-                ],
-                "from": {
-                  "key_code": "left_command",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": {
-                  "key_code": "left_option"
-                },
-                "to_if_alone": {
-                  "key_code": "left_option"
-                },
-                "type": "basic"
-              },
-              {
-                "conditions": [
+                    ]
+                  },
                   {
-                    "identifiers": [
-                      {
-                        "product_id": 641
-                      }
-                    ],
-                    "type": "device_unless"
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.vmware.horizon",
+                      "com.microsoft.rdc.macos"
+                    ]
                   }
                 ],
                 "from": {
-                  "key_code": "right_control",
+                  "key_code": "left_control",
                   "modifiers": {
                     "optional": ["any"]
                   }
                 },
                 "to": {
-                  "key_code": "right_option"
-                },
-                "to_if_alone": {
-                  "key_code": "right_option"
-                },
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "identifiers": [
-                      {
-                        "product_id": 641
-                      }
-                    ],
-                    "type": "device_unless"
-                  }
-                ],
-                "from": {
-                  "key_code": "right_option",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": {
-                  "key_code": "right_command"
-                },
-                "to_if_alone": {
-                  "apple_vendor_keyboard_key_code": "launchpad"
+                  "key_code": ""
                 },
                 "type": "basic"
               }
             ]
           },
+
           {
-            "description": "on ANSI keyboard caps -> ctrl",
+            "description": "on external ANSI keyboard (remapped)",
             "manipulators": [
               {
                 "conditions": [
                   {
+                    "type": "device_unless",
                     "identifiers": [
                       {
                         "product_id": 641
                       }
-                    ],
-                    "type": "device_unless"
+                    ]
                   }
                 ],
                 "from": {
@@ -190,15 +157,13 @@
                 "to": {
                   "key_code": "left_command"
                 },
-                "to_if_alone": {
-                  "key_code": "left_command"
-                },
                 "type": "basic"
               }
             ]
           },
+
           {
-            "description": "remap Apple keyboard",
+            "description": "on Apple internal keyboard",
             "manipulators": [
               {
                 "conditions": [
@@ -223,13 +188,18 @@
                   }
                 ],
                 "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "remap for all",
-            "manipulators": [
+              },
               {
+                "conditions": [
+                  {
+                    "type": "device_if",
+                    "identifiers": [
+                      {
+                        "product_id": 641
+                      }
+                    ]
+                  }
+                ],
                 "from": {
                   "key_code": "caps_lock",
                   "modifiers": {
@@ -245,8 +215,61 @@
               }
             ]
           },
+
           {
-            "description": "action by word",
+            "description": "word(token) actions for all",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "left_arrow",
+                  "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": ["left_option"]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "right_arrow",
+                  "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": ["left_option"]
+                  }
+                ]
+              },
+              {
+                "from": {
+                  "key_code": "delete_or_backspace",
+                  "modifiers": {
+                    "mandatory": ["left_command"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "delete_or_backspace",
+                    "modifiers": ["left_option"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "word(token) actions for apple internal keyboard",
             "manipulators": [
               {
                 "from": {
@@ -298,6 +321,7 @@
               }
             ]
           },
+
           {
             "description": "fn binding action",
             "manipulators": [
@@ -784,6 +808,7 @@
         ],
         "title": "ykm"
       },
+
       "devices": [
         {
           "disable_built_in_keyboard_if_exists": false,
@@ -851,6 +876,7 @@
           "simple_modifications": []
         }
       ],
+
       "fn_function_keys": [
         {
           "from": {
