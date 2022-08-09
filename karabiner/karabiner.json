@@ -102,17 +102,8 @@
                   }
                 ]
               },
-              // temp ) disable ctrl-w
               {
                 "conditions": [
-                  // {
-                  //   "type": "device_unless",
-                  //   "identifiers": [
-                  //     {
-                  //       "product_id": 641
-                  //     }
-                  //   ]
-                  // },
                   {
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
@@ -129,6 +120,30 @@
                 },
                 "to": {
                   "key_code": ""
+                },
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.vmware.horizon",
+                      "com.microsoft.rdc.macos"
+                    ]
+                  }
+                ],
+                "from": {
+                  "key_code": "tab",
+                  "modifiers": {
+                    "mandatory": ["left_option"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": {
+                  "key_code": "tab",
+                  "modifiers": ["left_option"],
+                  "lazy": true
                 },
                 "type": "basic"
               }
